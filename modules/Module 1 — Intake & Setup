@@ -1,0 +1,13 @@
+Normalize user-provided section list.
+
+Detect missing, mislabeled, or empty sections.
+
+Apply PS2 constraints:
+
+Word limits
+
+Audience type
+
+Terminology consistency
+
+Prepare configuration parameters, including summary detail level and evidence mode.
