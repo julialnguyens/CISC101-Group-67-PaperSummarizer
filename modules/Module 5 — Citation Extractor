@@ -1,0 +1,8 @@
+
+Extract all in-text citations from the paper.
+
+Compile a citation list.
+
+Do not generate or hallucinate citations.
+
+If citations are missing or incomplete, output a warning.
