@@ -1,0 +1,19 @@
+For each section:
+
+Extract text.
+
+Summarize without adding new claims.
+
+Capture purpose, methods/arguments, findings only.
+
+Apply summary length constraints.
+
+Preserve original section order.
+
+Generate both expert and lay transformations.
+
+Provide hooks for:
+
+Short vs detailed summary modes
+
+Guardrails from Module 3
