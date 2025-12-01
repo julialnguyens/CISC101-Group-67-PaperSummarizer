@@ -1,0 +1,15 @@
+Detect missing, empty, or <50-word sections.
+
+Prevent hallucinations.
+
+Enforce evidence-based constraints from PS2.
+
+Manage long-paper chunking (context-window).
+
+Ensure:
+
+No fabricated claims
+
+No invented sections
+
+Every statement traceable to paper text
