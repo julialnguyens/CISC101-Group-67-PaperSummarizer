@@ -1,15 +1,37 @@
+Change Log
+> - 2025-12-01: Added `evidence_mode = "strict"` and warnings for missing/short sections.
 Detect missing, empty, or <50-word sections.
+
+- If a section is missing or empty, do not summarize it.  
+  Output: `Section skipped: no usable text was provided for this section.`
+- If a section is very short (< 50 words), still summarize it but add a warning.  
+  Output: `Section very short: summary may be incomplete.`
+
+Support evidence modes.
+
+- `evidence_mode = "default"` → normal behavior (still avoid obvious hallucinations).
+- `evidence_mode = "strict"` → only use information that appears directly in the section text.
+  - Do not add background knowledge, definitions, or assumptions.
+  - If there is not enough information to summarize, output:  
+    `The source text does not provide enough detail to summarize this section in strict evidence mode.`
 
 Prevent hallucinations.
 
+- Never guess or fill in missing results.
+- Only restate what the section actually says.
+
 Enforce evidence-based constraints from PS2.
+
+- All summaries must be grounded strictly in the provided paper text.
+- In `evidence_mode = "strict"`, be extra conservative and avoid any speculative phrasing.
 
 Manage long-paper chunking (context-window).
 
+- When the paper is chunked, treat each chunk as the only source of truth for that part.
+- Do not bring in information from other chunks unless it is clearly in context.
+
 Ensure:
 
-No fabricated claims
-
-No invented sections
-
-Every statement traceable to paper text
+- No fabricated claims  
+- No invented sections  
+- Every statement traceable to paper text
