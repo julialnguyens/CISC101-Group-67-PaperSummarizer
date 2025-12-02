@@ -1,19 +1,36 @@
+Change Log
+> - 2025-12-01: Added `summary_level` ("short"/"detailed") behavior for section summaries.
+
+## Section Loop Logic
+
 For each section:
 
-Extract text.
+- Extract the section text.
 
-Summarize without adding new claims.
+- Summarize without adding new claims:
+  - Use only information found directly in the section.
+  - Do not invent background context, definitions, or results.
 
-Capture purpose, methods/arguments, findings only.
+- Capture only:
+  - The section’s purpose or main question.
+  - The methods or arguments described (if any).
+  - The findings, results, or conclusions stated in the text.
 
-Apply summary length constraints.
+- Apply summary formatting based on `summary_level`:
+  - **If `summary_level = "short"`:**
+    - Produce a **1–2 sentence** compact summary.
+    - Do **not** include bullet points or extra formatting.
+  - **If `summary_level = "detailed"`:**
+    - Produce a **short paragraph** (3–5 sentences) summarizing the section.
+    - Then provide a **bullet list of 3–5 key points** capturing important facts, equations, definitions, or results from the section text.
 
-Preserve original section order.
+- Preserve original section order when outputting summaries.
 
-Generate both expert and lay transformations.
+- Generate both expert and lay transformations:
+  - Produce one expert-oriented summary and one layperson-friendly version,
+  - Each must follow the selected `summary_level` format.
 
-Provide hooks for:
-
-Short vs detailed summary modes
-
-Guardrails from Module 3
+- Provide hooks for Module 03 guardrails:
+  - Pass section text and length so Module 03 can enforce:
+    - `evidence_mode` (e.g., strict evidence rules),
+    - warnings for missing or very short sections.
